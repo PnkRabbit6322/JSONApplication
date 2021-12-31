@@ -1,16 +1,14 @@
 package com.example.jsonapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import android.content.Intent;
-
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -77,12 +75,30 @@ public class MainActivity extends AppCompatActivity {
                 for(int i = 0; i < jArr.length(); i++){
                     JSONObject jObj = jArr.getJSONObject(i);
                     JSONObject avatarObject = jObj.getJSONObject("avatar");
+                    JSONObject addressObject = jObj.getJSONObject("address");
+                    JSONObject companyObject = jObj.getJSONObject("company");
                     int id = jObj.getInt("id");
                     String name = jObj.getString("name");
                     String username = jObj.getString("username");
                     String email = jObj.getString("email");
                     String thumbnailSrc = avatarObject.getString("thumbnail");
-                    ItemModel item = new ItemModel(id, name, username, email, thumbnailSrc);
+                    String photoSrc = avatarObject.getString("photo");
+                    String street = addressObject.getString("street");
+                    String suite = addressObject.getString("suite");
+                    String city = addressObject.getString("city");
+                    String zipcode = addressObject.getString("zipcode");
+                    JSONObject geoObject = addressObject.getJSONObject("geo");
+                    String lat = geoObject.getString("lat");
+                    String lng = geoObject.getString("lng");
+                    String phone = jObj.getString("phone");
+                    String companyName = companyObject.getString("name");
+                    String catchPhrase = companyObject.getString("catchPhrase");
+                    String bs = companyObject.getString("bs");
+                    ItemModel item = new ItemModel(id, name, username,
+                            email, thumbnailSrc, photoSrc,
+                            street, suite, city, zipcode,
+                            lat, lng, phone, companyName,
+                            catchPhrase, bs);
                     items.add(item);
                 }
                 return items;
@@ -97,8 +113,7 @@ public class MainActivity extends AppCompatActivity {
             dialog.dismiss();
 
             if (items != null) {
-                Log.v("TAG","Size" + items.size());
-                ItemAdapter adapter = new ItemAdapter(items);
+                ItemAdapter adapter = new ItemAdapter(items, recyclerView);
                 recyclerView.setAdapter(adapter);
             }
         }
