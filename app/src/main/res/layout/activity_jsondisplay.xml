@@ -6,4 +6,83 @@
     android:layout_height="match_parent"
     tools:context=".JSONDisplay">
 
+    <ImageView
+        android:id="@+id/detail_photo"
+        android:layout_width="256dp"
+        android:layout_height="256dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/detail_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="name"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detail_photo" />
+
+    <TextView
+        android:id="@+id/detail_username"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="username"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/detail_email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detail_name" />
+
+    <TextView
+        android:id="@+id/detail_email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="email"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/detail_address"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detail_username" />
+
+    <TextView
+        android:id="@+id/detail_address"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="address"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/detail_phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detail_email" />
+
+    <TextView
+        android:id="@+id/detail_phone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="phone"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/detail_company"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detail_address" />
+
+    <TextView
+        android:id="@+id/detail_company"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="company"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detail_phone"
+        app:layout_constraintVertical_bias="0.147" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
